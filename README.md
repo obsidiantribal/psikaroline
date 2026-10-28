@@ -46,13 +46,13 @@ npm run preview  # serve a dist/ para conferir
    | A | @ | 185.199.109.153 |
    | A | @ | 185.199.110.153 |
    | A | @ | 185.199.111.153 |
-   | CNAME | www | `SEU-USUARIO.github.io` |
+   | CNAME | www | `obsidiantribal.github.io` |
 
    Apague registros A/CNAME antigos que apontem para a Hostinger (página de "estacionamento").
    A propagação costuma levar de minutos a algumas horas.
 5. Crie `public/CNAME` com o domínio (uma linha, sem https), mude em `astro.config.mjs` para `site: 'https://SEU-DOMINIO'` e `base: '/'`, e atualize a URL do sitemap em `public/robots.txt`.
 
-Enquanto não há domínio, o site fica em https://obsidiantribal.github.io/psikaroline.
+Domínio em uso: https://psikarolinetrombim.com.br
 
 ## Alternativa: Cloudflare Pages (grátis)
 

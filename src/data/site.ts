@@ -4,7 +4,7 @@ export const site = {
   title: 'Karoline Trombim · Psicanalista Clínica',
   description:
     'Psicanálise clínica com Karoline Trombim, online e presencial em Araranguá/SC: um espaço de escuta, acolhimento e reflexão para compreender a própria história, aliviar a ansiedade e construir vínculos mais saudáveis.',
-  url: 'https://karolinetrombim.com.br',
+  url: 'https://psikarolinetrombim.com.br',
   locale: 'pt_BR',
 
   // Contato — confirme o número antes de publicar.

@@ -3,12 +3,11 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
-// ENQUANTO NÃO HÁ DOMÍNIO: site no endereço do GitHub, com base '/psikaroline'.
-// QUANDO O DOMÍNIO CHEGAR: site: 'https://SEU-DOMINIO', base: '/',
-// e crie public/CNAME com o domínio (uma linha).
+// Domínio personalizado no GitHub Pages: `site` é o domínio e `base` fica '/'.
+// O domínio também está em public/CNAME.
 export default defineConfig({
-  site: 'https://obsidiantribal.github.io',
-  base: '/psikaroline',
+  site: 'https://psikarolinetrombim.com.br',
+  base: '/',
   trailingSlash: 'never',
   build: { format: 'file', inlineStylesheets: 'auto' },
   integrations: [sitemap()],

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://obsidiantribal.github.io/psikaroline/sitemap-index.xml
+Sitemap: https://psikarolinetrombim.com.br/sitemap-index.xml
