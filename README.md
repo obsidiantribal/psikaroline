@@ -22,7 +22,7 @@ npm run preview  # serve a dist/ para conferir
 | Fotos | `src/assets/photos/` (Astro gera AVIF/WebP e vários tamanhos no build) |
 | Logo | `src/assets/logo.png` (fundo transparente) |
 | Favicon e imagem de compartilhamento (WhatsApp/Instagram) | `public/favicon.png`, `public/og.jpg` |
-| Domínio | `public/CNAME` **e** `site:` em `astro.config.mjs` |
+| Domínio | `public/CNAME` (criar com o domínio), `site:` e `base:` em `astro.config.mjs`, URL do sitemap em `public/robots.txt` |
 
 ## Publicar no GitHub Pages com domínio da Hostinger
 
@@ -50,7 +50,9 @@ npm run preview  # serve a dist/ para conferir
 
    Apague registros A/CNAME antigos que apontem para a Hostinger (página de "estacionamento").
    A propagação costuma levar de minutos a algumas horas.
-5. Confira se `public/CNAME` e `site:` em `astro.config.mjs` têm exatamente o domínio escolhido.
+5. Crie `public/CNAME` com o domínio (uma linha, sem https), mude em `astro.config.mjs` para `site: 'https://SEU-DOMINIO'` e `base: '/'`, e atualize a URL do sitemap em `public/robots.txt`.
+
+Enquanto não há domínio, o site fica em https://obsidiantribal.github.io/psikaroline.
 
 ## Alternativa: Cloudflare Pages (grátis)
 
