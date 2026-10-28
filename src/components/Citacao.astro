@@ -1,0 +1,32 @@
+---
+import { Picture } from 'astro:assets';
+import photo from '../assets/photos/cadeira-vermelho.jpg';
+---
+<section class="relative overflow-hidden bg-forest text-cream-100">
+  <div class="pointer-events-none absolute inset-0 opacity-70" aria-hidden="true">
+    <div class="absolute -left-40 top-10 size-[520px] rounded-full bg-sage-700/30 blur-3xl"></div>
+    <div class="absolute -right-32 bottom-0 size-[460px] rounded-full bg-mauve-700/25 blur-3xl"></div>
+  </div>
+
+  <div class="container-x relative grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1fr_0.8fr] lg:gap-20">
+    <div class="max-w-2xl">
+      <p class="eyebrow reveal !text-mauve-300 before:!bg-mauve-300">Uma escuta diferente</p>
+      <blockquote class="reveal mt-6 font-display text-[2.1rem] font-light leading-[1.15] text-cream-50 sm:text-5xl lg:text-[3.4rem]" data-delay="1">
+        “A psicanálise não oferece respostas prontas, mas convida à reflexão, à escuta de si e à construção de
+        <span class="italic text-sage-400">novos sentidos</span> para a própria história.”
+      </blockquote>
+      <p class="reveal mt-8 text-sm uppercase tracking-[0.18em] text-cream-300/70" data-delay="2">Karoline Trombim</p>
+    </div>
+
+    <div class="reveal mx-auto w-full max-w-[400px]" data-delay="2">
+      <Picture
+        src={photo}
+        alt="Karoline Trombim sentada em uma cadeira, com um café nas mãos"
+        formats={['avif', 'webp']}
+        widths={[400, 640, 900]}
+        sizes="(min-width: 1024px) 400px, 80vw"
+        class="arch aspect-[3/4] w-full object-cover object-top ring-1 ring-white/10"
+      />
+    </div>
+  </div>
+</section>

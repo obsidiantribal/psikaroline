@@ -1,0 +1,50 @@
+---
+import { Picture } from 'astro:assets';
+import photo from '../assets/photos/sorriso-branco.jpg';
+import { site, whatsappUrl } from '../data/site';
+import WhatsIcon from './WhatsIcon.astro';
+---
+<section id="contato" class="scroll-mt-20 py-20 sm:py-28">
+  <div class="container-x">
+    <div class="paper relative overflow-hidden rounded-[40px] bg-cream-50 shadow-soft ring-1 ring-ink-900/5">
+      <div class="grid items-center gap-10 px-7 py-12 sm:px-12 sm:py-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16 lg:px-16">
+        <div class="max-w-xl">
+          <p class="eyebrow reveal">Vamos conversar?</p>
+          <h2 class="reveal mt-4 text-4xl leading-[1.05] sm:text-5xl lg:text-[3.4rem]" data-delay="1">
+            O seu espaço de escuta pode começar <span class="italic text-sage-700">hoje</span>.
+          </h2>
+          <p class="lead reveal mt-5" data-delay="2">
+            Me chame no WhatsApp. Você não precisa saber exatamente o que dizer: basta dar o primeiro passo.
+          </p>
+          <div class="reveal mt-8 flex flex-wrap items-center gap-4" data-delay="3">
+            <a href={whatsappUrl} target="_blank" rel="noopener" class="btn btn-primary text-base !px-7 !py-3.5">
+              <WhatsIcon size={20} />
+              Chamar no WhatsApp
+            </a>
+            <span class="text-sm text-ink-500">{site.phoneDisplay}</span>
+          </div>
+          <div class="reveal mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-500" data-delay="3">
+            <span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-sage-400"></span>{site.modalidade}</span>
+            <span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-sage-400"></span>{site.cidade}/{site.uf}</span>
+          </div>
+          {(site.instagram || site.email) && (
+            <ul class="reveal mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-500" data-delay="3">
+              {site.instagram && <li><a class="hover:text-mauve-700" href={`https://instagram.com/${site.instagram}`} target="_blank" rel="noopener">@{site.instagram}</a></li>}
+              {site.email && <li><a class="hover:text-mauve-700" href={`mailto:${site.email}`}>{site.email}</a></li>}
+            </ul>
+          )}
+        </div>
+        <div class="reveal mx-auto w-full max-w-[340px]" data-delay="2">
+          <Picture
+            src={photo}
+            alt="Karoline Trombim sorrindo"
+            formats={['avif', 'webp']}
+            widths={[340, 520, 760]}
+            sizes="(min-width: 1024px) 340px, 70vw"
+            class="arch aspect-[4/5] w-full object-cover object-top"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

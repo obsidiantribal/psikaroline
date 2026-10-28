@@ -1,0 +1,49 @@
+---
+import { site } from '../data/site';
+
+const passos = [
+  {
+    n: '01',
+    titulo: 'Primeiro contato',
+    texto: 'Você me chama no WhatsApp. Ali tiramos dúvidas iniciais e conversamos sobre o que você está buscando, sem compromisso.',
+  },
+  {
+    n: '02',
+    titulo: 'Escolha do horário',
+    texto: 'Escolhemos juntas(os) o melhor horário. A partir daí, aquele espaço passa a ser reservado exclusivamente para você.',
+  },
+  {
+    n: '03',
+    titulo: 'As sessões',
+    texto: `Cada sessão dura cerca de ${site.sessionLength}, podendo se estender. É um tempo para falar livremente, com escuta atenta, ética e sigilo.`,
+  },
+  {
+    n: '04',
+    titulo: 'O processo',
+    texto: 'As mudanças acontecem no seu ritmo. Aos poucos, o que antes parecia confuso vai ganhando sentido e abrindo novos caminhos.',
+  },
+];
+---
+<section id="como-funciona" class="scroll-mt-20 bg-cream-200/60 py-20 sm:py-28">
+  <div class="container-x">
+    <div class="max-w-2xl">
+      <p class="eyebrow reveal">Como funciona</p>
+      <h2 class="reveal mt-4 text-4xl leading-[1.05] sm:text-5xl" data-delay="1">
+        Começar é mais <span class="italic text-sage-700">simples</span> do que parece
+      </h2>
+    </div>
+
+    <ol class="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      {passos.map((p, i) => (
+        <li class="reveal relative" data-delay={String(Math.min(i, 3))}>
+          <div class="flex items-center gap-4">
+            <span class="font-display text-5xl font-light leading-none text-mauve-500">{p.n}</span>
+            <span class="h-px flex-1 bg-ink-900/10"></span>
+          </div>
+          <h3 class="mt-5 text-2xl font-semibold text-ink-900">{p.titulo}</h3>
+          <p class="mt-2.5 text-[15.5px] leading-relaxed text-ink-500">{p.texto}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

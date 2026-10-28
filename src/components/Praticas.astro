@@ -1,0 +1,55 @@
+---
+import { site } from '../data/site';
+
+const itens = [
+  {
+    titulo: 'Duração',
+    texto: `As sessões têm cerca de ${site.sessionLength} e, quando necessário, podem se estender um pouco.`,
+    icone: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm0-15v5l3 2',
+  },
+  {
+    titulo: 'Agendamento',
+    texto: `Feito pelo WhatsApp, para atendimento online ou presencial em ${site.cidade}/${site.uf}. A sessão é confirmada com o pagamento antecipado, via PIX ou cartão.`,
+    icone: 'M4 7h16M8 3v4M16 3v4M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm4 10 2 2 4-4',
+  },
+  {
+    titulo: 'Remarcações',
+    texto: `Imprevistos acontecem. Para cancelar ou remarcar, basta avisar com pelo menos ${site.cancellationHours} horas de antecedência.`,
+    icone: 'M3 12a9 9 0 1 0 3-6.7M3 4v5h5',
+  },
+  {
+    titulo: 'Valores',
+    texto: 'Os valores das sessões individuais e de casal são informados no primeiro contato, de forma transparente.',
+    icone: 'M12 2v20M17 6.5c-.6-1.6-2.4-2.5-5-2.5-3 0-5 1.5-5 3.5s2 3 5 3.5 5 1.5 5 3.5-2 3.5-5 3.5c-2.8 0-4.6-1-5.2-2.7',
+  },
+];
+---
+<section id="praticas" class="scroll-mt-20 py-20 sm:py-28">
+  <div class="container-x">
+    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+      <div>
+        <p class="eyebrow reveal">Informações práticas</p>
+        <h2 class="reveal mt-4 text-4xl leading-[1.05] sm:text-5xl" data-delay="1">
+          O que você precisa saber <span class="italic text-mauve-700">antes de começar</span>
+        </h2>
+        <p class="lead reveal mt-5" data-delay="2">
+          Combinados claros deixam o processo mais leve. Qualquer dúvida, é só perguntar.
+        </p>
+      </div>
+
+      <dl class="grid gap-4 sm:grid-cols-2">
+        {itens.map((it, i) => (
+          <div class="card reveal flex gap-4 !p-6" data-delay={String(Math.min(i, 3))}>
+            <div class="grid size-11 shrink-0 place-items-center rounded-xl bg-mauve-100 text-mauve-700">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={it.icone} /></svg>
+            </div>
+            <div>
+              <dt class="text-lg font-semibold text-ink-900">{it.titulo}</dt>
+              <dd class="mt-1 text-[15px] leading-relaxed text-ink-500">{it.texto}</dd>
+            </div>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>

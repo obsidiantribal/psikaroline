@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+import { nav, whatsappUrl } from '../data/site';
+---
+<header id="topo" class="sticky top-0 z-50 transition-[background-color,box-shadow] duration-300 data-[scrolled=true]:bg-cream-100/85 data-[scrolled=true]:shadow-[0_1px_0_rgb(28_39_33/0.06)] data-[scrolled=true]:backdrop-blur-md">
+  <div class="container-x flex h-[84px] items-center justify-between gap-6">
+    <a href="#topo" class="shrink-0" aria-label="Karoline Trombim — início">
+      <Image src={logo} alt="Karoline Trombim · Psicanalista Clínica" width={176} densities={[1, 2]} class="h-[54px] w-auto sm:h-16" loading="eager" />
+    </a>
+
+    <nav aria-label="Principal" class="hidden items-center gap-7 md:flex">
+      {nav.map((n) => (
+        <a href={n.href} class="text-[15px] font-medium text-ink-700 transition-colors hover:text-sage-700">{n.label}</a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href={whatsappUrl} target="_blank" rel="noopener" class="btn btn-primary hidden px-5! py-2.5! md:inline-flex">Agendar</a>
+      <button id="menu-btn" class="grid size-11 place-items-center rounded-full ring-1 ring-ink-900/10 md:hidden" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="menu" hidden class="md:hidden">
+    <nav aria-label="Menu móvel" class="container-x flex flex-col gap-1 border-t border-ink-900/5 bg-cream-100/95 py-4 backdrop-blur-md">
+      {nav.map((n) => (
+        <a href={n.href} class="rounded-xl px-3 py-3 text-base font-medium text-ink-900 hover:bg-cream-200">{n.label}</a>
+      ))}
+      <a href={whatsappUrl} target="_blank" rel="noopener" class="btn btn-primary mt-2">Agendar pelo WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('topo')!;
+  const btn = document.getElementById('menu-btn')!;
+  const menu = document.getElementById('menu')!;
+  const onScroll = () => { header.dataset.scrolled = String(window.scrollY > 12); };
+  onScroll();
+  addEventListener('scroll', onScroll, { passive: true });
+  btn.addEventListener('click', () => {
+    const open = menu.hidden;
+    menu.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  });
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+    menu.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+  }));
+</script>

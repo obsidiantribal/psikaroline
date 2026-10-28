@@ -1,0 +1,57 @@
+---
+import { site } from '../data/site';
+
+const faq = [
+  {
+    q: 'Preciso estar em crise para procurar a psicanálise?',
+    a: 'Não. Muitas pessoas começam por um sofrimento pontual, mas tantas outras chegam pelo desejo de se conhecer melhor, entender padrões que se repetem ou simplesmente ter um espaço só seu. Qualquer motivo é válido.',
+  },
+  {
+    q: 'Como é a primeira sessão?',
+    a: 'É uma conversa. Você fala sobre o que te trouxe até aqui, no seu tempo, e eu escuto com atenção. Não há roteiro nem teste: o objetivo é começar a construir um espaço de confiança.',
+  },
+  {
+    q: 'Quanto tempo dura o processo?',
+    a: 'Não existe um prazo fixo. A psicanálise respeita o ritmo de cada pessoa, e o processo se desenha ao longo dos encontros. Alguns efeitos aparecem cedo; outros, mais profundos, levam tempo para se consolidar.',
+  },
+  {
+    q: 'O que eu falo nas sessões fica em sigilo?',
+    a: 'Sim. O sigilo é um dos pilares do trabalho psicanalítico. Tudo o que é dito em sessão é tratado com ética e confidencialidade.',
+  },
+  {
+    q: 'Qual é a diferença entre a psicanálise e outras abordagens?',
+    a: 'A psicanálise se interessa pelo que está além do sintoma: pela história, pelos desejos e pelos conflitos que muitas vezes agem sem que a gente perceba. Em vez de oferecer respostas prontas, ela convida a escutar a si mesmo(a) e a construir novos sentidos.',
+  },
+  {
+    q: 'Como faço para agendar?',
+    a: `Basta me chamar no WhatsApp pelo número ${site.phoneDisplay}. Tiramos as dúvidas, escolhemos o melhor horário e, a partir disso, o seu espaço de escuta estará reservado.`,
+  },
+];
+---
+<section id="duvidas" class="scroll-mt-20 bg-cream-200/60 py-20 sm:py-28">
+  <div class="container-x grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+    <div>
+      <p class="eyebrow reveal">Dúvidas frequentes</p>
+      <h2 class="reveal mt-4 text-4xl leading-[1.05] sm:text-5xl" data-delay="1">
+        Perguntas que costumam <span class="italic text-sage-700">aparecer</span>
+      </h2>
+      <p class="lead reveal mt-5" data-delay="2">
+        Se a sua não estiver aqui, me escreva. Responder dúvidas também faz parte do cuidado.
+      </p>
+    </div>
+
+    <div class="reveal divide-y divide-ink-900/10 rounded-3xl bg-cream-50 px-6 shadow-card ring-1 ring-ink-900/5 sm:px-8" data-delay="1">
+      {faq.map((f) => (
+        <details class="group py-5">
+          <summary class="flex items-start justify-between gap-6">
+            <span class="text-[17px] font-medium leading-snug text-ink-900 sm:text-lg">{f.q}</span>
+            <span class="chev mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-sage-100 text-sage-700" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 2v10M2 7h10"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 max-w-prose text-[15.5px] leading-relaxed text-ink-500">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+---
+import { whatsappUrl } from '../data/site';
+import WhatsIcon from './WhatsIcon.astro';
+---
+<a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener"
+  aria-label="Conversar pelo WhatsApp"
+  class="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-sage-700 text-cream-50 shadow-soft transition-transform duration-300 ease-(--ease-out-soft) hover:-translate-y-0.5 hover:bg-sage-900 sm:bottom-7 sm:right-7"
+>
+  <WhatsIcon size={26} />
+  <span class="absolute inset-0 -z-10 animate-ping rounded-full bg-sage-700/40 motion-reduce:hidden" style="animation-duration: 2.6s" aria-hidden="true"></span>
+</a>

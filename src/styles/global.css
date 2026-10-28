@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Cormorant Variable", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+  /* Paleta: creme quente de base, verde-sálvia (cérebro do logo),
+     malva (assinatura do logo) e um toque de rosa/coral das flores. */
+  --color-cream-50: #fbf9f5;
+  --color-cream-100: #f8f4ee;
+  --color-cream-200: #f1eae0;
+  --color-cream-300: #e5dbcd;
+
+  --color-ink-900: #1c2721;
+  --color-ink-700: #2f3d35;
+  --color-ink-500: #5a6962;
+
+  --color-sage-100: #e8f0e9;
+  --color-sage-200: #cfe0d3;
+  --color-sage-400: #7fa88a;
+  --color-sage-600: #4f7f5c;
+  --color-sage-700: #3d6648;
+  --color-sage-900: #1e3426;
+
+  --color-mauve-100: #f2e7f0;
+  --color-mauve-300: #d2b3cd;
+  --color-mauve-500: #a878a0;
+  --color-mauve-700: #7d567a;
+
+  --color-blush-100: #fbe7ec;
+  --color-blush-300: #f2b9c8;
+  --color-coral-500: #d9484f;
+
+  --color-forest: #182720;
+
+  --shadow-soft: 0 10px 40px -12px rgb(28 39 33 / 0.18);
+  --shadow-card: 0 1px 2px rgb(28 39 33 / 0.04), 0 12px 32px -16px rgb(28 39 33 / 0.16);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    @apply bg-cream-100 text-ink-700 font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection { background: var(--color-mauve-300); color: var(--color-ink-900); }
+
+  h1, h2, h3, .font-display { @apply font-display; }
+  h1, h2 { @apply text-ink-900 font-medium tracking-[-0.01em]; text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  :focus-visible { outline: 2px solid var(--color-sage-600); outline-offset: 3px; border-radius: 4px; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-medium
+           transition-[transform,background-color,box-shadow,color] duration-300 ease-(--ease-out-soft)
+           active:scale-[0.98] whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply bg-sage-700 text-cream-50 shadow-soft hover:bg-sage-900 hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply border border-ink-900/15 text-ink-900 hover:border-ink-900/40 hover:bg-cream-50;
+  }
+  .btn-light {
+    @apply bg-cream-100 text-sage-900 hover:bg-white hover:-translate-y-0.5 shadow-soft;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[12.5px] font-semibold uppercase tracking-[0.18em] text-mauve-700;
+  }
+  .eyebrow::before { content: ""; @apply h-px w-6 bg-mauve-500; }
+
+  .lead { @apply text-lg leading-relaxed text-ink-500 sm:text-xl; }
+
+  .card {
+    @apply rounded-3xl bg-cream-50 p-7 shadow-card ring-1 ring-ink-900/5;
+  }
+
+  .prose-soft p + p { @apply mt-4; }
+}
+
+/* Revelação suave ao rolar (desativada se o usuário prefere menos movimento) */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--ease-out-soft), transform .8s var(--ease-out-soft); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal[data-delay="1"] { transition-delay: .1s; }
+.reveal[data-delay="2"] { transition-delay: .2s; }
+.reveal[data-delay="3"] { transition-delay: .3s; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* Moldura em arco para fotos */
+.arch { border-radius: 999px 999px 28px 28px; }
+
+/* Textura sutil de papel no fundo */
+.paper {
+  background-image:
+    radial-gradient(60% 50% at 10% 0%, rgb(168 120 160 / 0.10), transparent 60%),
+    radial-gradient(50% 40% at 95% 20%, rgb(127 168 138 / 0.14), transparent 60%);
+}
+
+/* Accordion nativo com animação de ícone */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details .chev { transition: transform .35s var(--ease-out-soft); }
+details[open] .chev { transform: rotate(45deg); }

@@ -1,0 +1,51 @@
+---
+import { Picture } from 'astro:assets';
+import photo from '../assets/photos/retrato-luz.jpg';
+import { site, whatsappUrl } from '../data/site';
+import WhatsIcon from './WhatsIcon.astro';
+---
+<section class="paper relative overflow-hidden">
+  <div class="container-x grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:py-24">
+    <div class="max-w-xl">
+      <p class="eyebrow reveal">Psicanalista clínica</p>
+      <h1 class="reveal mt-5 text-[2.75rem] leading-[1.02] sm:text-6xl lg:text-[4.4rem]" data-delay="1">
+        Um espaço de <em class="font-light italic text-sage-700">escuta</em> para a sua história.
+      </h1>
+      <p class="lead reveal mt-6" data-delay="2">
+        Falar livremente sobre o que você sente, sem julgamentos, é o primeiro passo para se compreender.
+        A psicanálise oferece esse lugar: de acolhimento, reflexão e construção de novos sentidos.
+      </p>
+      <div class="reveal mt-9 flex flex-wrap gap-3" data-delay="3">
+        <a href={whatsappUrl} target="_blank" rel="noopener" class="btn btn-primary">
+          <WhatsIcon />
+          Agendar uma conversa
+        </a>
+        <a href="#psicanalise" class="btn btn-ghost">Conhecer o trabalho</a>
+      </div>
+      <ul class="reveal mt-10 flex flex-wrap gap-x-7 gap-y-2 text-sm text-ink-500" data-delay="3">
+        <li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-mauve-500"></span>Ética e sigilo</li>
+        <li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-mauve-500"></span>No seu ritmo</li>
+        <li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-mauve-500"></span>Sem julgamentos</li>
+        <li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-mauve-500"></span>{site.modalidade} · {site.cidade}/{site.uf}</li>
+      </ul>
+    </div>
+
+    <div class="reveal relative mx-auto w-full max-w-[420px] lg:max-w-none" data-delay="1">
+      <div class="absolute -inset-6 -z-10 rounded-[999px_999px_60px_60px] bg-gradient-to-b from-mauve-100 via-blush-100 to-sage-100 opacity-80 blur-2xl"></div>
+      <Picture
+        src={photo}
+        alt="Karoline Trombim, psicanalista clínica, em retrato com luz suave"
+        formats={['avif', 'webp']}
+        widths={[420, 640, 900]}
+        sizes="(min-width: 1024px) 480px, 90vw"
+        class="arch aspect-[4/5] w-full object-cover object-top shadow-soft"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute -bottom-5 -left-3 rounded-2xl bg-cream-50 px-5 py-4 shadow-card ring-1 ring-ink-900/5 sm:-left-8">
+        <p class="font-display text-2xl italic leading-none text-sage-700">“Fale livremente.”</p>
+        <p class="mt-1.5 text-xs uppercase tracking-[0.16em] text-ink-500">Escuta sem julgamentos</p>
+      </div>
+    </div>
+  </div>
+</section>

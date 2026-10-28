@@ -1,0 +1,48 @@
+---
+import { Picture } from 'astro:assets';
+import photo from '../assets/photos/notebook-branco.jpg';
+import { whatsappUrl } from '../data/site';
+
+const momentos = [
+  'Sente uma ansiedade que não dá trégua e não sabe de onde ela vem.',
+  'Percebe que repete os mesmos padrões nas relações e se pergunta por quê.',
+  'Tem dificuldade em dizer não, colocar limites ou priorizar o que precisa.',
+  'Carrega inseguranças que atrapalham as suas escolhas.',
+  'Sente que algo precisa mudar, mas não sabe por onde começar.',
+  'Quer se conhecer melhor, mesmo sem estar passando por uma crise.',
+];
+---
+<section id="para-quem" class="scroll-mt-20 py-20 sm:py-28">
+  <div class="container-x grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+    <div class="order-2 lg:order-1">
+      <p class="eyebrow reveal">Para quem é</p>
+      <h2 class="reveal mt-4 text-4xl leading-[1.05] sm:text-5xl" data-delay="1">
+        Talvez você se reconheça em <span class="italic text-mauve-700">algum destes momentos</span>
+      </h2>
+      <ul class="reveal mt-8 space-y-3.5" data-delay="2">
+        {momentos.map((m) => (
+          <li class="flex gap-3.5 text-[16.5px] leading-relaxed text-ink-700">
+            <span class="mt-2 size-2 shrink-0 rounded-full bg-gradient-to-br from-mauve-500 to-blush-300"></span>
+            <span>{m}</span>
+          </li>
+        ))}
+      </ul>
+      <div class="reveal mt-8 rounded-2xl bg-sage-100 px-6 py-5 text-[15.5px] leading-relaxed text-sage-900" data-delay="3">
+        <strong class="font-semibold">Não é preciso ter um motivo “grande” para começar.</strong>
+        O desejo de se escutar com mais atenção já é um bom ponto de partida.
+      </div>
+      <a href={whatsappUrl} target="_blank" rel="noopener" class="btn btn-primary reveal mt-8" data-delay="3">Quero conversar sobre isso</a>
+    </div>
+
+    <div class="reveal order-1 mx-auto w-full max-w-[460px] lg:order-2" data-delay="1">
+      <Picture
+        src={photo}
+        alt="Karoline Trombim diante de um notebook, com o olhar atento"
+        formats={['avif', 'webp']}
+        widths={[420, 640, 900]}
+        sizes="(min-width: 1024px) 460px, 90vw"
+        class="aspect-[4/5] w-full rounded-[32px] object-cover object-top shadow-soft"
+      />
+    </div>
+  </div>
+</section>

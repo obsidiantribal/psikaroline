@@ -1,0 +1,55 @@
+---
+import { Picture } from 'astro:assets';
+import { site } from '../data/site';
+import photo from '../assets/photos/poltrona-branco.jpg';
+import detalhe from '../assets/photos/livro-branco.jpg';
+---
+<section id="sobre" class="scroll-mt-20 py-20 sm:py-28">
+  <div class="container-x grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+    <div class="reveal relative mx-auto w-full max-w-[460px]">
+      <Picture
+        src={photo}
+        alt="Karoline Trombim sentada em uma poltrona, sorrindo"
+        formats={['avif', 'webp']}
+        widths={[420, 640, 900]}
+        sizes="(min-width: 1024px) 460px, 90vw"
+        class="aspect-[4/5] w-full rounded-[32px] object-cover shadow-soft"
+      />
+      <Picture
+        src={detalhe}
+        alt="Karoline lendo um livro, sentada no chão"
+        formats={['avif', 'webp']}
+        widths={[240, 400]}
+        sizes="180px"
+        class="absolute -bottom-8 -right-4 hidden w-40 rotate-3 rounded-2xl object-cover shadow-card ring-4 ring-cream-100 sm:block lg:-right-10 lg:w-48"
+      />
+    </div>
+
+    <div class="prose-soft max-w-xl">
+      <p class="eyebrow reveal">Sobre mim</p>
+      <h2 class="reveal mt-4 text-4xl leading-[1.05] sm:text-5xl" data-delay="1">
+        Olá, seja bem-vindo(a). <br class="hidden sm:block" />Eu sou a <span class="italic text-mauve-700">Karoline</span>.
+      </h2>
+      <div class="reveal mt-6 text-[17px] leading-relaxed text-ink-700" data-delay="2">
+        <p>
+          Sou psicanalista clínica e atendo de forma online e presencial, em {site.cidade}/{site.uf}. Meu trabalho é
+          oferecer um espaço de escuta, acolhimento e reflexão, onde você possa falar livremente sobre a sua história,
+          seus conflitos, sentimentos e relações.
+        </p>
+        <p>
+          Acredito que cada pessoa carrega uma singularidade que merece ser ouvida com atenção e sem pressa.
+          Por isso, cada processo acontece no ritmo de quem o vive, com ética, sigilo e respeito.
+        </p>
+        <p>
+          Não se trata de receber respostas prontas, mas de construir, junto, novos sentidos para o que
+          você sente, para o que viveu e para o que deseja daqui em diante.
+        </p>
+      </div>
+      <figure class="reveal mt-8 border-l-2 border-mauve-300 pl-5" data-delay="3">
+        <blockquote class="font-display text-2xl italic leading-snug text-ink-900 sm:text-[1.7rem]">
+          “O cuidado começa também pela organização do tempo e do compromisso com você.”
+        </blockquote>
+      </figure>
+    </div>
+  </div>
+</section>
